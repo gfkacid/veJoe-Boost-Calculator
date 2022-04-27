@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+body {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+.App{
+    padding-top: 2em;
+    background: linear-gradient(rgb(255, 231, 172) 0%, rgb(242, 246, 250) 320px) no-repeat;
+}
+.joeLine{
+    background-image: url('../public/cursor_joe.png');
+    background-size: contain;
+    background-repeat: round;
+    height: 1.2em;
+    width: 100%;
+    
+    &.veJoe{
+        background-image: url('../public/cursor_veJoe.png');
+    }
+}
+.bgHeader{
+    background-image: url('../public/cursor_joe.png');
+    background-size: contain;
+    background-repeat: round;
+    text-align: center;
+    span{
+        background: rgb(252 233 185 / 80%);
+    }
+}
+.connect-wrapper button{
+    width: 200px;
+    height: 3em;
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 3px solid black;
+}
+.justify-space{
+    display: flex;
+    padding: 0px;
+    align-items: center;
+    justify-content: space-between;
+}
+.farm-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+}
+.farm-card-outer {
+  width: 100%;
+  max-height: 690px;
+  margin: 25px 0;
+  
+  .farm-card-inner {
+    transform-style: preserve-3d;
+    transition: .5s linear .1s;
+    position: relative;
+    width: inherit;
+    height: 250px;
+    
+    &.showBack {
+      transform: rotateY(180deg);
+      height: 690px;
+    }
+  
+    .card {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 32px;
+      border-radius: 32px;
+      
+      .farm-header{
+        display: flex;
+        margin: 0px;
+        padding: 0px;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+
+        .farm-title-section{
+            box-sizing: border-box;
+            margin: 0px;
+            min-width: 0px;
+            width: 100%;
+            display: flex;
+            padding: 0px;
+            -webkit-box-align: center;
+            align-items: center;
+            
+            h4{
+                margin-bottom: 0;
+                margin-left: 6px;
+                .pair-logo{
+                    border-radius: 12px;
+                    height: 1em;
+                }
+                .pair-logo:last-child{
+                    margin-left: -4px;
+                }
+            }
+            .farm-logos{
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                margin-right: 22px;
+
+                img{
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 42px;
+                    box-shadow: rgb(0 0 0 / 8%) 0px 6px 10px;
+                }
+            }
+
+            .farm-title{
+                box-sizing: border-box;
+                margin: 0px;
+                min-width: 0px;
+                font-weight: 600;
+                font-size: 16px;
+            }
+        }
+
+        .farm-button-section{
+            display: flex;
+        }
+
+        .toggle-calc{
+            border-radius: 0.625rem;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            padding: 0.5em;
+            -webkit-box-align: center;
+            align-items: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgb(36, 36, 36);
+            width: fit-content;
+            white-space: nowrap;
+            cursor: url('../public/cursor_veJoe.png'), pointer;
+        }
+      }
+    .farm-data-wrapper{
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        row-gap: 0.75rem;
+        margin-top: 1.5rem;
+
+        .farm-data-label{
+            box-sizing: border-box;
+            margin: 0px;
+            min-width: 0px;
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+  
+      &.front {
+        transform: rotateY(0);
+        background-color: #fff;
+        color: #000;
+        height: 250px;
+        .color-light{
+            color: #a3a3a3;
+        }
+      }
+  
+      &.back {
+        transform: rotateY(180deg);
+        background-color: #a1a4ff;
+        color: #fff;
+        height: 690px;
+        .color-light{
+            color: rgba(255,255,255,0.6);
+        }
+        .toggle-calc{
+            cursor: url('../public/cursor_joe.png'), pointer;
+            background-color: #ffffff30;
+            border-color: #ffffff30
+        }
+        hr{
+            border: 1px solid;
+        }
+        .stat{
+            display: flex;
+            justify-content: space-between;
+        }
+        .highlight{
+            margin-top: 16px;
+            background-color: #777be360;
+            border-radius: 20px;
+            padding: 16px 28px;
+            
+                
+            .bold{
+                font-weight: bold;
+            }
+        }
+      }
+    }
+  }
+}
+
+/* CALCULATOR CSS */
+.inputs-wrapper{
+    display: grid;
+    grid-auto-rows: auto;
+    row-gap: 8px;
+    margin-top: 0.2rem;
+}
+.add-liquidity-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    z-index: 1;
+
+    .input-wrapper{
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.5);
+        background-color: rgba(255,255,255,0.25);
+
+        .input-row {
+            display: flex;
+            flex-flow: row nowrap;
+            -webkit-box-align: center;
+            align-items: center;
+            padding: 0.75rem 0.75rem 0.75rem 1rem;
+
+            input{
+                color: rgb(36, 36, 36);
+                position: relative;
+                font-weight: 500;
+                outline: none;
+                border: none;
+                flex: 1 1 auto;
+                background: transparent;
+                font-size: 24px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0px;
+                appearance: textfield;
+            }
+
+            .currency{
+                font-size: 14px;
+                font-weight: 500;
+                color: rgb(36, 36, 36);
+                outline: none;
+                user-select: none;
+                min-width: 120px;
+                border-left: 1px solid rgb(235, 235, 245);
+                padding-left: 1rem;
+
+                span{
+                    img{
+                        max-width: 32px;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.token-logo img{
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+    box-shadow: rgb(0 0 0 / 8%) 0px 6px 10px;
+}
+
+.token-logo span{
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.plus-separator{
+    text-align: center;
+
+}
+
+.mb12{
+    margin-bottom: 12px;
+}
+
+@media screen and (max-device-width: 720px) {
+    .farm-title-section > svg{
+        width: 32px;
+    }
+    .farm-grid{
+        grid-template-columns: 1fr;
+    }
+    .add-liquidity-wrapper .input-wrapper .input-row input{
+        font-size: 16px;
+    }
+
+    .farm-card-outer {
+        max-height: 724px;
+        
+        .farm-card-inner {
+          height: 250px;
+          
+          &.showBack {
+            height: 724px;
+          }
+
+          .card{
+              &.back{
+                  height: 724px;
+              }
+          }
+        }
+    }
+}
