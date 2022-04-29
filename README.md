@@ -4,6 +4,8 @@ This calculator is my entry for TraderJoe's Bounty for a calculator react app to
 
 NOTE: Farm liquidity is a bit off from the number shown on TJ site, thus skewing the numbers a bit (~0.5% less APR observed by average for about 2AVAX worth of liquidity across various farms while testing)
 
+[Demo](https://vejoe.cryptodickies.club/)
+
 ## Setup
 
 `yarn install`
